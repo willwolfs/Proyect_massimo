@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-image: url("../image/fondo\ login.jpg"); /* Reemplaza con la ruta de tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background-color: #000000ce;
+  padding: 40px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 15px rgba(3, 3, 3, 0.2);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: white;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #fcfbfb;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+}
+
+form i {
+  color: #fff;
+  margin-right: 10px;
+}
+
+form input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  flex: 1;
+}
+
+.forgot {
+  display: block;
+  color: #f5f1f1;
+  text-align: right;
+  font-size: 0.85em;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #e02636;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  background-color: #54f0169c;
+}
+
+.signup {
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+.signup a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* boton de retroceder*/
+.form-back-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -25px;
+}
+
+.form-back-button {
+  transform: translateY(-205px) translateX(-15px);
+  top: -205px; /* Ajusta posición vertical (antes con transform) */
+  left: -15px; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d32f2f;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.form-back-button img {
+  width: 24px;   /* Tamaño exacto del ícono */
+  height: 24px;  /* Tamaño exacto del ícono */
+  object-fit: contain; /* Evita deformación */
+  display: block; /* Elimina espacios no deseados */
+}
+
+.form-back-button:hover {
+  background-color: #54f0169c;
+}

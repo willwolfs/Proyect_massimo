@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  background-color: rgba(14, 13, 12, 0.97);
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  transition: top 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.logo img {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* Suaviza la animación */
+  cursor: pointer;
+  /* Cambia el cursor a una manita (como en los enlaces) */
+}
+
+.logo img:hover {
+  opacity: 0.8;
+  /* Hace la imagen un poco transparente */
+  transform: scale(1.05);
+  /* Aumenta ligeramente el tamaño */
+}
+
+.carousel,
+section {
+  display: none;
+  width: 100%;
+}
+
+.carousel.active,
+section.active {
+  display: block;
+}
+
+section {
+  min-height: calc(100vh - 80px);
+  /* para dejar espacio al navbar */
+  padding: 0;
+  color: #fff;
+}
+
+iframe {
+  width: 100%;
+  height: calc(100vh - 80px);
+  /* ajusta según altura del navbar */
+  border: none;
+  display: block;
+}
+
+/* detalles bajo el carrusel */
+/* Estilos para la sección de detalles del restaurante */
+.restaurant-details {
+  padding: 50px 20px;
+  background-color: #f8f8f8;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  /* Agregado */
+  max-width: 1200px;
+  /* Agregado para que no se estire demasiado */
+  margin: 0 auto;
+  /* Agregado para centrar la sección */
+  box-sizing: border-box;
+  /* Agregado para asegurar buen comportamiento del padding */
+}
+
+.details-content {
+  margin-top: 20px;
+  /* Agregado para separar un poco del carrusel */
+}
+
+.details-content h2 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.details-content h3 {
+  font-size: 28px;
+  color: #555;
+  margin-top: 30px;
+}
+
+.details-content p {
+  font-size: 18px;
+  color: #666;
+  margin: 10px 0;
+}
+
+.details-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.details-content ul li {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.call-to-action {
+  margin-top: 30px;
+}
+
+.btn-reservar {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #c0392b;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background-color: #e74c3c;
+}
+
+/* banner  */
+     .banner-container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden; /* evita que el zoom se desborde */
+      border-radius: 0px;
+    }
+
+    .banner-container img {
+      width: 100%;
+      height: auto;
+      max-height: 140px;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+.banner-container img {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+.banner-container:not(:hover) img {
+  opacity: 0.7;
+}
+
+.cerrar-sesion {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  margin-left: 10px;
+}
+
+.cerrar-sesion img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}

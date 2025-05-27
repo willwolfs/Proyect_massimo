@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <link rel="icon" type="image/x-icon" href="../image/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/hearder.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/inicio.css">
+  <link rel="stylesheet" href="css/hearder.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="../css/local.css">
+  <link rel="stylesheet" href="../css/carrito.css">
+  
+  <title>Locales-pucallpa</title>
+</head>
+<body>
+  <header>
+<div class="header-container">
+  <div class="logo-columna">
+    <a href="../index.html">
+      <img src="../image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
+    </a>
+<a href="pedido.html" class="boton-pedido">
+  <i class='bx bx-map'></i> ¡Comienza tu pedido!
+</a>
+
+
+
+  </div>
+
+    
+
+<!-- Menú de Navegación -->
+<nav class="menu-principal">
+  <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+  <a href="../html/menu.html"><i class="fas fa-pizza-slice"></i> Menú</a>
+  <a href="../html/promocion.html"><i class="fas fa-tags"></i> Promociones</a>
+  <a href="#"><i class="fas fa-store"></i> Locales</a>
+  <a href="../html/reservacion.html"><i class="fas fa-envelope"></i> Reserva</a>
+</nav>
+
+
+    <!-- Acciones Principales -->
+     
+    <div class="acciones-principal">
+      <a href="https://api.whatsapp.com/send/?phone=51919500060&text&type=phone_number&app_absent=0" class="whatsapp">
+        <img src="../image/whatsapp.png" alt="WhatsApp" />
+       <span class="texto-whatsapp">Pide por <br> WhatsApp</span>
+      </a>
+    <a href="tel:+51 919 500 060" class="telefono">
+      <img src="../image/telefono.png" alt="Teléfono" />
+     <span class="numero">Llamanos <br> +51 919 500 060</span>
+     </a>
+
+      <a href="../html/Login.html" class="login">
+        <img src="../image/usuario2.png" alt="Iniciar Sesión" />
+         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+      </a>
+      <a href="#" class="carrito">
+        <img src="../image/carrito.png" alt="Carrito" />
+         <span class="monto-carrito">Carrito</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Modal del carrito -->
+<div id="modalCarrito" class="modal-carrito">
+  <div class="contenido-carrito">
+    <button class="cerrar-carrito">&times;</button>
+    <div class="items-carrito">
+      <p>No hay productos aún.</p>
+    </div>
+    <div class="total-carrito">
+      <strong>Total: </strong> S/0.00
+    </div>
+    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
+  </div>
+</div>
+
+<!-- contenido -->
+<div class="container">
+    <h1>Nuestros <span>Sucursales</span></h1>
+    <p class="subtitle">Encuentra tu tienda más cercana en Pucallpa.</p>
+
+    <div class="locales-container">
+        <!-- Local 1 -->
+        <div class="local-card">
+            <div class="card-header">
+                <span class="card-id"><i class="fas fa-store"></i> #25006</span>
+                <h2>CALLERIA PUCALLPA</h2>
+            </div>
+            <div class="card-body">
+                <div class="map-preview">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Jr.+Guillermo+Sisley+799,+Pucallpa&output=embed" 
+                        width="100%" 
+                        height="160" 
+                        frameborder="0" 
+                        style="border:0;" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Jr.+Guillermo+Sisley+799,+Pucallpa" target="_blank" class="map-overlay">
+                        <span><i class="fas fa-expand"></i> Ver mapa completo</span>
+                    </a>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Dirección</h3>
+                        <p>Jr. Guillermo Sisley 799, Pucallpa, Ucayali, Perú</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Teléfono</h3>
+                        <p>+51 919 500 060</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="info-content">
+                        <h3>Horario</h3>
+                        <p>Lunes a Sábado: 9:00 AM - 8:00 PM<br>Domingo: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.google.com/maps/search/?api=1&query=Jr.+Guillermo+Sisley+799,+Pucallpa" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-map-marked-alt"></i> Ver Mapa
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Jr.+Guillermo+Sisley+799,+Pucallpa" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-route"></i> Cómo llegar
+                </a>
+            </div>
+        </div>
+
+        <!-- Local 2 -->
+        <div class="local-card">
+            <div class="card-header">
+                <span class="card-id"><i class="fas fa-store"></i> #25003</span>
+                <h2>VILLA SELVA PUCALLPA</h2>
+            </div>
+            <div class="card-body">
+                <div class="map-preview">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Av.+Miraflores+SELVA+PLAZA+PUCALLPA&output=embed" 
+                        width="100%" 
+                        height="160" 
+                        frameborder="0" 
+                        style="border:0;" 
+                        allowfullscreen 
+                        loading="lazy">
+                    </iframe>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Miraflores+SELVA+PLAZA+PUCALLPA" target="_blank" class="map-overlay">
+                        <span><i class="fas fa-expand"></i> Ver mapa completo</span>
+                    </a>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Dirección</h3>
+                        <p>Av. Miraflores SELVA PLAZA PUCALLPA, Ucayali, Perú</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info-content">
+                        <h3>Teléfono</h3>
+                        <p>+51 919 500 060</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="info-content">
+                        <h3>Horario</h3>
+                        <p>Lunes a Sábado: 9:00 AM - 8:00 PM<br>Domingo: 10:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a href="https://www.google.com/maps/search/?api=1&query=Av.+Miraflores+SELVA+PLAZA+PUCALLPA" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-map-marked-alt"></i> Ver Mapa
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Av.+Miraflores+SELVA+PLAZA+PUCALLPA" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-route"></i> Cómo llegar
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <script src="js/header.js"></script>
+  <script src="js/control.js"></script>
+  <script src="js/usuarios.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script>
+    // Cuando se carga la página
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('../usuario_actual.php')
+        .then(response => response.text())
+        .then(nombre => {
+          if (nombre.trim() !== "") {
+            document.getElementById("texto-login").innerHTML = `Hola, <br> ${nombre}`;
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener el nombre de usuario:', error);
+        });
+    });
+  </script>
+
+</body>
+</html>

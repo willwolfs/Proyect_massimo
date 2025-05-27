@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgot Password</title>
+  <link rel="stylesheet" href="../css/Recuperar.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <img class="avatar" src="../image/avatar massimo.png" alt="Avatar">
+      <h2>¿Olvidaste tu contraseña de Massimo?</h2>
+      <p class="subtitle">Por favor introduzca su dirección de correo electrónico para recibir un enlace de restablecimiento de contraseña.</p>
+
+      <form onsubmit="return sendResetLink(event)">
+        <label for="email">
+          <i class="fa fa-envelope"></i>
+          <input type="email" id="email" placeholder="Correo electronico" required>
+        </label>
+
+        <button type="submit">Restablecer contraseña</button>
+
+        <p class="signup">¿Lo recordaste? <a href="../html/Login.html">Inicia sesión</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    function sendResetLink(event) {
+      event.preventDefault();
+      const email = document.getElementById('email').value;
+      alert(`If an account exists for ${email}, a reset link has been sent.`);
+      window.location.href = '../index.html';
+    }
+  </script>
+</body>
+</html>

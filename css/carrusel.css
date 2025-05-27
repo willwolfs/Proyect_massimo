@@ -1,0 +1,54 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 400px; /* Ajusta esto según qué tan alto lo quieras */
+    overflow: hidden;
+    border-radius: 0; /* Si no quieres esquinas redondas */
+    box-shadow: none; /* Puedes dejarlo si quieres un estilo más plano */
+  }
+  
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ;
+  }
+  
+  .carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    transition: opacity 0.5s ease;
+  }
+  
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esto hace que la imagen se "estire" sin deformarse */
+    display: block;
+  }
+  
+  .carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 25px;
+  }
+  
+  .carousel-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 30px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  

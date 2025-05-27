@@ -1,0 +1,99 @@
+.footer {
+  background-color: #111;
+  color: #eee;
+  padding: 40px 20px 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.footer-section {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.footer-section h3 {
+  color: #d9232e;
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.logo-footer {
+  width: 180px;
+  margin-bottom: 15px;
+}
+
+.footer-section p, 
+.footer-section .phone {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.footer-section .phone {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.social {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Imágenes de redes sociales pequeñas con efecto hover */
+.social img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.social img:hover {
+  transform: scale(1.1);
+}
+
+.map iframe {
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  max-width: 250px;
+  height: 200px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 15px 10px 10px;
+  border-top: 1px solid #222;
+  margin-top: 30px;
+  font-size: 14px;
+  color: white;
+}
+
+.footer-bottom span {
+  color: #d9232e;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .map iframe {
+    max-width: 100%;
+    height: 180px;
+  }
+  .logo-footer {
+    width: 150px;
+  }
+}

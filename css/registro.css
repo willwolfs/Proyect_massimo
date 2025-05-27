@@ -1,0 +1,146 @@
+/* Estilo para signup.html */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('../image/fondo\ login.jpg'); /* ← Cambia esto por la ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    background-color: #000000ce;
+    padding: 40px 30px;
+    border-radius: 10px;
+    width: 400px;
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    margin-bottom: 5px;
+    font-size: 24px;
+  }
+  
+  .subtitle {
+    font-size: 13px;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  form label {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ffffff;
+    padding: 5px;
+  }
+  
+  form i {
+    color: #fffefe;
+    margin-right: 8px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    flex: 1;
+    font-size: 14px;
+  }
+  
+  button {
+    background-color: #e02636;
+    border: none;
+    color: white;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background-color: #54f0169c;
+  }
+  
+  .signup {
+    font-size: 13px;
+    margin-top: 15px;
+    color: #bbb;
+  }
+  
+  .signup a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+
+ /* boton de retroceder*/
+.form-back-button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -25px;
+}
+
+.form-back-button {
+  transform: translateY(-205px) translateX(-15px);
+  top: -205px; /* Ajusta posición vertical (antes con transform) */
+  left: -15px; 
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d32f2f;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.form-back-button img {
+  width: 24px;   /* Tamaño exacto del ícono */
+  height: 24px;  /* Tamaño exacto del ícono */
+  object-fit: contain; /* Evita deformación */
+  display: block; /* Elimina espacios no deseados */
+}
+
+.form-back-button:hover {
+  background-color: #54f0169c;
+}
+    
+  

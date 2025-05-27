@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../image/logo.png">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="../css/Login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .error-message {
+      color: red;
+      background-color: #ffe0e0;
+      border: 1px solid red;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      text-align: center;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <img class="avatar" src="../image/avatar massimo.png" alt="Avatar">
+      <p class="subtitle">Bienvenido a <br> Massimo Grosso</p>
+      <h2>INICIAR SESIÓN</h2>
+
+      <div id="error-message" class="error-message"></div>
+
+      <form id="login-form">
+        <div class="form-back-button-container">
+          <a href="../index.html" class="form-back-button" title="Volver"><img src="../image/volver.png" alt=""></a>
+        </div>
+        <label for="correo">
+          <input type="text" id="correo" name="correo" placeholder="Correo electrónico" required>
+        </label>
+
+        <label for="contraseña">
+          <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required>
+        </label>
+
+        <a href="Recuparar.html" class="forgot">¿Olvidaste tu contraseña?</a>
+
+        <button type="submit">Iniciar Sesión</button>
+
+        <p class="signup">¿No tienes cuenta?<br><br><a href="Registro.html">Registrarse </a></p>
+      </form>
+    </div>
+  </div>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    const form = document.getElementById("login-form");
+    const errorDiv = document.getElementById("error-message");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      fetch("../login.php", {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data.trim() === "ok") {
+          window.location.href = "../index.html";
+        } else {
+          errorDiv.innerText = data;
+          errorDiv.style.display = "block";
+        }
+      })
+      .catch(error => {
+        errorDiv.innerText = "Error en el servidor.";
+        errorDiv.style.display = "block";
+      });
+    });
+  </script>
+
+<script>
+document.getElementById("login-form").addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const correo = document.getElementById("correo").value;
+  const contraseña = document.getElementById("contraseña").value;
+  const errorBox = document.getElementById("error-message");
+
+  const response = await fetch("../login.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `correo=${encodeURIComponent(correo)}&contraseña=${encodeURIComponent(contraseña)}`
+  });
+  
+  const text = await response.text();
+
+  if (text.trim() === "ok") {
+    window.location.href = "../index.html";
+  } else {
+    errorBox.style.display = "block";
+    errorBox.textContent = text;
+  }
+});
+</script>
+</body>
+</html>

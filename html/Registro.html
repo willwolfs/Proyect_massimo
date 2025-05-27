@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="../image/logo.png">
+  <title>Registrarse</title>
+  <link rel="stylesheet" href="../css/registro.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <img class="avatar" src="../image/avatar massimo.png" alt="Avatar">
+      <p class="subtitle">Sé parte de <br> Massimo Grosso</p>
+      <h2>CREAR CUENTA</h2>
+
+      <form id="registroForm">
+        <div class="form-back-button-container">
+          <a href="Login.html" class="form-back-button" title="Volver"><img src="../image/volver.png" alt=""></a>
+        </div>
+
+        <label for="newUsername">
+          <i class="fa fa-user"></i>
+          <input type="text" id="newUsername" placeholder="Nombre" required>
+        </label>
+
+        <label for="email">
+          <i class="fa fa-user"></i>
+          <input type="text" id="email" placeholder="Correo electronico" required>
+        </label>
+
+        <label for="newPassword">
+          <i class="fa fa-lock"></i>
+          <input type="password" id="newPassword" placeholder="Contraseña" required>
+        </label>
+
+        <label for="confirmPassword">
+          <i class="fa fa-lock"></i>
+          <input type="password" id="confirmPassword" placeholder="Confirmar contraseña" required>
+        </label>
+
+        <button type="submit">Crear cuenta</button>
+
+        <p class="signup">¿Ya eres miembro?<br><a href="Login.html">Inicia Sesión</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('registroForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+
+  const nombre = document.getElementById('newUsername').value;
+  const correo = document.getElementById('email').value;
+  const contraseña = document.getElementById('newPassword').value;
+  const confirmar = document.getElementById('confirmPassword').value;
+
+  if (contraseña !== confirmar) {
+    alert('Las contraseñas no coinciden');
+    return;
+  }
+
+  fetch('../guardar.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: `nombre=${encodeURIComponent(nombre)}&correo=${encodeURIComponent(correo)}&contraseña=${encodeURIComponent(contraseña)}`
+  })
+  .then(response => response.text())
+  .then(data => {
+    alert(data);
+    if (data.includes("exitosamente")) {
+      // Guardar datos en localStorage
+      localStorage.setItem("usuarioActual", JSON.stringify({ nombre: nombre, correo: correo }));
+      window.location.href = 'perfil.html';
+    }
+  })
+  .catch(error => {
+    alert('Error al registrar: ' + error);
+  });
+});
+
+  </script>
+</body>
+</html>

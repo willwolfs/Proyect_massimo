@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <link rel="icon" type="image/x-icon" href="../image/logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/hearder.css">
+<link rel="stylesheet" href="css/inicio.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="../css/menu.css">
+<link rel="stylesheet" href="../css/carrito.css">
+<title>Menu</title>
+</head>
+<body>
+  <header>
+<div class="header-container">
+  <div class="logo-columna">
+    <a href="../index.html">
+      <img src="../image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
+    </a>
+<a href="pedido.html" class="boton-pedido">
+  <i class='bx bx-map'></i> ¡Comienza tu pedido!
+</a>
+
+
+
+  </div>
+
+    
+
+<!-- Menú de Navegación -->
+<nav class="menu-principal">
+  <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+  <a href="../html/menu.html"><i class="fas fa-pizza-slice"></i> Menú</a>
+  <a href="../html/promocion.html"><i class="fas fa-tags"></i> Promociones</a>
+  <a href="../html/local.html"><i class="fas fa-store"></i> Locales</a>
+  <a href="../html/reservacion.html"><i class="fas fa-envelope"></i> Reserva</a>
+</nav>
+
+
+    <!-- Acciones Principales -->
+     
+    <div class="acciones-principal">
+      <a href="https://api.whatsapp.com/send/?phone=51919500060&text&type=phone_number&app_absent=0" class="whatsapp">
+        <img src="../image/whatsapp.png" alt="WhatsApp" />
+       <span class="texto-whatsapp">Pide por <br> WhatsApp</span>
+      </a>
+    <a href="tel:+51 919 500 060" class="telefono">
+      <img src="../image/telefono.png" alt="Teléfono" />
+     <span class="numero">Llamanos <br> +51 919 500 060</span>
+     </a>
+
+      <a href="../html/Login.html" class="login">
+        <img src="../image/usuario2.png" alt="Iniciar Sesión" />
+         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+      </a>
+      <a href="#" class="carrito">
+        <img src="../image/carrito.png" alt="Carrito" />
+         <span class="monto-carrito">Carrito</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Modal del carrito -->
+<div id="modalCarrito" class="modal-carrito">
+  <div class="contenido-carrito">
+    <button class="cerrar-carrito">&times;</button>
+    <div class="items-carrito">
+      <p>No hay productos aún.</p>
+    </div>
+    <div class="total-carrito">
+      <strong>Total: </strong> S/0.00
+    </div>
+    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
+  </div>
+</div>
+
+<!-- contenido del menu -->
+<div class="menu-container">
+        <div class="menu-title">
+            <h1>Menú Massimo</h1>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todo</button>
+            <button class="filter-btn" data-filter="pizzas">Pizzas</button>
+            <button class="filter-btn" data-filter="wraps">Wraps</button>
+            <button class="filter-btn" data-filter="bebidas">Bebidas</button>
+            <button class="filter-btn" data-filter="frapuccinos">Frapuccinos</button>          
+            <button class="filter-btn vegetarian" data-filter="ensaladas">Ensaladas</button>
+            <button class="filter-btn promo" data-filter="promo">Pastas</button>
+        </div>
+        
+        <div class="pizza-grid">
+            <!-- Pizza 1 -->
+            <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-popular">Popular</span>
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Margherita" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">AMERICANA</h3>
+                    <p class="pizza-ingredients">Jamon ahumado y queso mazzarella.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 34.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pizza 2 -->
+            <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">PEPPERONI</h3>
+                    <p class="pizza-ingredients">Queso mozzarella y pepperoni.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 36.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MARGHERITA</h3>
+                    <p class="pizza-ingredients">Queso mozzarella, tomates flameados, albahaca.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 34.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MOZZARELLA</h3>
+                    <p class="pizza-ingredients">Pasta de tomate y queso mozzarella.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 34.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">HAWAIANA</h3>
+                    <p class="pizza-ingredients">Queso mozzarella, jamon ahumado y piña.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 37.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">VEGGIE</h3>
+                    <p class="pizza-ingredients">Champiñones, cebolla blanca, aceitunas verdes, zucchinis salteados y pimientos morroniados.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 39.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">SUPER PEPPERONI</h3>
+                    <p class="pizza-ingredients">Tu pizza pepperoni de siempre, ahora acompañada de Champiñones salteados.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 39.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FUNGHI AL PESTO</h3>
+                    <p class="pizza-ingredients">Champiñones, zucchinis flameados, hojas de albahaca, base de salsa de tomate y queso mozzarella.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 44.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">CARNIVORI</h3>
+                    <p class="pizza-ingredients">Pepperoni, jamon ahumado, pollo en trozos, tocino, cebolla blanca . salsa de tomate y queso mozzarella.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 44.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">PIZZA MASSIMO GROSSO</h3>
+                    <p class="pizza-ingredients">Jamon ahumado, pollo en trozos, pepperoni, cebolla blanca, aceitunas verdes, pimientos mooroneado, salsa de tomate  y queso mozzarella.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 36.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="pizzas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">HAWALLAN CHICKEN BBQ</h3>
+                    <p class="pizza-ingredients">Pechuga de pollo en trozos, tocino ahumado, cebolla blanca, piña de almibar y salsa BBQ.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 47.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Wrap 1 -->
+            <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">Wrap de Pollo Crujiente</h3>
+                    <p class="pizza-ingredients">Pollo empanizado, lechuga, tomate, queso cheddar y salsa ranch.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 22.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">TEXT MEX BURRITO</h3>
+                    <p class="pizza-ingredients">Carne de res acompañado de pimientos morroniados, cebolla, lechuga, tomates, frijoles negros y salsa guamacamole.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 21.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">CRISPY CHICKEN BBQ</h3>
+                    <p class="pizza-ingredients">Pollo crispy acompañado de salsa BBQ, col morada, cebolla blanca, tomate y lechuga.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 20.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">TERIYAKI CHICKEN</h3>
+                    <p class="pizza-ingredients">Pollo crispy, lechuga, tomate, pimiento, zanahori, cebolla blanca, tiras de wantan y aderezo Oriental.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 20.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">HAWALLAN CHICKEN & HAM</h3>
+                    <p class="pizza-ingredients">Pollo crispy, lechuga, cebolla blanca, piña, jamon, crispys de harina de trigo y aderezo hawaiano.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 20.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="wraps">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">CAESAR'S CON POLLO</h3>
+                    <p class="pizza-ingredients">Pollo a la plancha, lechuga, queso parmesano y aderezo Caesar's.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 21.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ensalada 1 -->
+            <div class="pizza-card" data-category="ensaladas">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-veg">Veg</span>
+                    <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ensalada César" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">CAESAR'S CON POLLO</h3>
+                    <p class="pizza-ingredients">Cubitos de pollo a la plancha, lechugas, queso parmesano y aderezo caesar.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 23.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                    <div class="pizza-card" data-category="ensaladas">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-veg">Veg</span>
+                    <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ensalada César" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">ENSALADA ORIENTAL</h3>
+                    <p class="pizza-ingredients">Lechuga, tomate, pimiento, zanahoria , cebolla blanca tiras de wantan, pollo crispyy aderezo oriental.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 22.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                 <div class="pizza-card" data-category="ensaladas">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-veg">Veg</span>
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ensalada Mediterránea" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">Ensalada Mediterránea</h3>
+                    <p class="pizza-ingredients">Berenjena asada, calabacín, pimientos, tomate seco, aceitunas y queso feta.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 21.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+           
+        
+            <!-- Bebida 1 -->
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">LIMON (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MARACUYA (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">PIÑA (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MANGO (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">LIMON HIERBABUENA (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MARACUMANGO (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 7.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRESA (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 8.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRESA (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/11.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="pizza-card" data-category="bebidas">
+                <div class="pizza-img-container">
+                    <img src="https://images.unsplash.com/photo-1551029506-0807df4e2031?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Limonada Natural" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MANGO (500ml)</h3>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 11.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promoción 1 -->
+            <div class="pizza-card" data-category="promo">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-offer">Oferta</span>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Cuatro Quesos" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">Cuatro Quesos</h3>
+                    <p class="pizza-ingredients">Mezcla de mozzarella, gorgonzola, parmesano y queso de cabra con salsa blanca.</p>
+                    <div class="pizza-footer">
+                        <span class="price-old">S/ 43.90</span>
+                        <span class="pizza-price">S/ 36.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Frapuccino 1 -->
+            <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRAPUCCINO DE CAFE</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 13.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRAPUCCINO DE CARAMELO</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 13.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRAPUCCINO DE ALGARROBINA</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 13.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">MOKACCINO (Choclate)</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 14.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">FRAPUCCINO OREO</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 15.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- cafe -->
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">EXPRESSO / AMERICANO</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 5.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">CAPUCCINO</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 8.5</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+                  <div class="pizza-card" data-category="frapuccinos">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-new">Nuevo</span>
+                    <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Frapuccino de Mocha" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">LATTE MACCIATO</h3>
+                    <p class="pizza-ingredients">Café, leche, chocolate, hielo y crema batida, decorado con sirope de chocolate.</p>
+                    <div class="pizza-footer">
+                        <span class="pizza-price">S/ 9.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Promoción 2 -->
+            <div class="pizza-card" data-category="promo">
+                <div class="pizza-img-container">
+                    <span class="pizza-badge badge-offer">Oferta</span>
+                    <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza BBQ" class="pizza-img">
+                </div>
+                <div class="pizza-info">
+                    <h3 class="pizza-name">BBQ Especial</h3>
+                    <p class="pizza-ingredients">Pollo a la barbacoa, cebolla caramelizada, bacon y mezcla de quesos con salsa BBQ.</p>
+                    <div class="pizza-footer">
+                        <span class="price-old">S/ 44.90</span>
+                        <span class="pizza-price">S/ 37.90</span>
+                        <button class="add-to-cart">
+                            <i class="fas fa-plus"></i> Añadir
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="js/header.js"></script>
+  <script src="js/control.js"></script>
+  <script src="js/usuarios.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/menu.js"></script>
+  <script src="../js/agregar-carrito.js"></script>
+  <script>
+    // Cuando se carga la página
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch('../usuario_actual.php')
+        .then(response => response.text())
+        .then(nombre => {
+          if (nombre.trim() !== "") {
+            document.getElementById("texto-login").innerHTML = `Hola, <br> ${nombre}`;
+          }
+        })
+        .catch(error => {
+          console.error('Error al obtener el nombre de usuario:', error);
+        });
+    });
+  </script>
+</body>
+</html>

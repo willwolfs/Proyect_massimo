@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="image/logo.png">
+  <title>MASSIMO GROSSO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/inicio.css">
+  <link rel="stylesheet" href="css/hearder.css">
+  <link rel="stylesheet" href="css/carrusel.css">
+  <link rel="stylesheet" href="css/contenido.css">
+  <link rel="stylesheet" href="css/tarjetas-de-contenido.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/modal_login.css">
+  <link rel="stylesheet" href="css/carrito.css">
+</head>
+<body>
+
+  <!-- Header -->
+<header>
+<div class="header-container">
+  <div class="logo-columna">
+    <a href="index.html">
+      <img src="image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
+    </a>
+<a href="html/pedido.html" class="boton-pedido">
+  <i class='bx bx-map'></i> ¡Comienza tu pedido!
+</a>
+
+
+
+  </div>
+
+<!-- Menú de Navegación -->
+<nav class="menu-principal">
+  <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+  <a href="html/menu.html"><i class="fas fa-pizza-slice"></i> Menú</a>
+  <a href="html/promocion.html"><i class="fas fa-tags"></i> Promociones</a>
+  <a href="html/local.html"><i class="fas fa-store"></i> Locales</a>
+  <a href="html/reservacion.html"><i class="fas fa-envelope"></i> Reserva</a>
+</nav>
+
+
+    <!-- Acciones Principales -->
+     
+    <div class="acciones-principal">
+      <a href="https://api.whatsapp.com/send/?phone=51919500060&text&type=phone_number&app_absent=0" class="whatsapp">
+        <img src="image/whatsapp.png" alt="WhatsApp" />
+       <span class="texto-whatsapp">Pide por <br> WhatsApp</span>
+      </a>
+    <a href="tel:+51 919 500 060" class="telefono">
+      <img src="image/telefono.png" alt="Teléfono" />
+     <span class="numero">Llamanos <br> +51 919 500 060</span>
+     </a>
+
+      <a href="html/Login.html" class="login" onclick="abrirModal()">
+        <img src="image/usuario2.png" alt="Iniciar Sesión" />
+         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+      </a>
+
+        
+      <a href="#" class="carrito">
+        <img src="image/carrito.png" alt="Carrito" />
+         <span class="monto-carrito">Carrito</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Modal del carrito -->
+<div id="modalCarrito" class="modal-carrito">
+  <div class="contenido-carrito">
+    <button class="cerrar-carrito">&times;</button>
+    <div class="items-carrito">
+      <p>No hay productos aún.</p>
+    </div>
+    <div class="total-carrito">
+      <strong>Total: </strong> S/0.00
+    </div>
+    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
+  </div>
+</div>
+<div id="modalLogin" class="modal-login">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button class="modal-tab active">Iniciar sesión</button>
+      <button class="modal-tab">Registrarse</button>
+      <button class="modal-close" onclick="cerrarModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <input type="email" placeholder="Correo" required>
+        <div class="password-input">
+          <input type="password" placeholder="Contraseña" required>
+          <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
+        </div>
+        <div class="forgot-password">
+          <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button type="submit">Ingresar</button>
+        <div class="divider">
+          <div class="divider-line"></div>
+          <span class="divider-text">o</span>
+          <div class="divider-line"></div>
+        </div>
+        <p style="text-align: center; margin-bottom: 15px;">Ingresa con:</p>
+        <button type="button" class="google-btn">
+          <div class="google-btn-content">
+            <img src="https://via.placeholder.com/24" alt="Usuario">
+            <div>
+              <div>Acceder con Google</div>
+            </div>
+          </div>
+          <img src="https://via.placeholder.com/18" alt="Google">
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <!-- Carrusel -->
+  <div class="carousel active" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="image/banner 1.jpg" alt="Slide 1"></div>
+      <div class="carousel-slide"><img src="image/Banner2.jpg" alt="Slide 2"></div>
+      <div class="carousel-slide"><img src="image/banner3.jpg" alt="Slide 3"></div>
+    </div>
+
+    <div class="carousel-buttons">
+      <button class="carousel-button" onclick="prevSlide()">❮</button>
+      <button class="carousel-button" onclick="nextSlide()">❯</button>
+    </div>
+  </div>
+
+  <!-- contenido -->
+  
+  <div class="contenedor">
+    <div class="seccion">
+      <br>
+      <br>
+      <h2> PACKS/COMBOS </h2>
+      <div class="productos">
+        <div class="card">
+          <div class="descuento">25% </div>
+          <img src="image/prueba-comida.jpg" alt="Dúo Imprerdible">
+          <div class="titulo">PIZZA PACK JR</div>
+          <div class="descripcion">1 Pizza Jr Mozarella, Americana o Peppegrande + 2 panes al ajo + 1 vaso de refresco (de 255ml).</div>
+          <div class="precio">S/ 17.90 <span class="tachado">S/ 25.60</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+        <div class="card">
+          <div class="descuento">55% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Dúo Sabroso">
+          <div class="titulo">PIZZA PACK PARA DOS</div>
+          <div class="descripcion">1 Pizza Americana o Margherita grande + 4 panes al ajo + 2 vasos de refresco (de 255ml).</div>
+          <div class="precio">S/ 39.90 <span class="tachado">S/ 55.40</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+         <div class="card">
+          <div class="descuento">55% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Dúo Sabroso">
+          <div class="titulo">PIZZA PACK PARA DOS</div>
+          <div class="descripcion">1 Pizza Americana o Margherita grande + 4 panes al ajo + 2 vasos de refresco (de 255ml).</div>
+          <div class="precio">S/ 39.90 <span class="tachado">S/ 55.40</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+        <div class="card">
+          <div class="descuento">42% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Promo Doble Queso Tocino">
+          <div class="titulo">PIZZA PACK POWER</div>
+          <div class="descripcion">1 pizzas Clásica o de Especialidad grande + 6 alitas + 6 panes al ajo + 1 litro de refresco.</div>
+          <div class="precio">S/ 69.90 <span class="tachado">S/ 75.90</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+              <div class="card">
+          <div class="descuento">42% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Promo Doble Queso Tocino">
+          <div class="titulo">PIZZA PACK POWER</div>
+          <div class="descripcion">1 pizzas Clásica o de Especialidad grande + 6 alitas + 6 panes al ajo + 1 litro de refresco.</div>
+          <div class="precio">S/ 69.90 <span class="tachado">S/ 75.90</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+        </div>
+        <br>
+        <br>
+
+
+        <!-- Banner 1 -->
+<div class="banner-container">
+  <img src="image/banner 1.jpg" alt="Banner promocional">
+</div>
+<br>
+<br>
+
+
+  <div class="seccion">
+      <h2> PIZZETAS/ PIZZA JA /COMBOS</h2>
+      <div class="productos">
+        <div class="card">
+          <div class="descuento">30%</div>
+          <img src="image/prueba-comida.jpg" alt="Familiar Perfecto">
+          <div class="titulo">Familiar Perfecto</div>
+          <div class="descripcion">4 hamburguesas, 4 papas, 4 gaseosas</div>
+          <div class="precio">S/ 50.90 <span class="tachado">S/ 112.80</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+        <div class="card">
+          <div class="descuento">55% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Familiar Perfecto">
+          <div class="titulo">Familiar Perfecto</div>
+          <div class="descripcion">4 hamburguesas, 4 papas, 4 gaseosas</div>
+          <div class="precio">S/ 50.90 <span class="tachado">S/ 112.80</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+        <div class="card">
+          <div class="descuento">55% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Familiar Perfecto">
+          <div class="titulo">Familiar Perfecto</div>
+          <div class="descripcion">4 hamburguesas, 4 papas, 4 gaseosas</div>
+          <div class="precio">S/ 50.90 <span class="tachado">S/ 112.80</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+        <div class="card">
+          <div class="descuento">44% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Combo Trío">
+          <div class="titulo">Combo Trío</div>
+          <div class="descripcion">1 Royal, 2 Cheese, 3 papas</div>
+          <div class="precio">S/ 39.90 <span class="tachado">S/ 71.40</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+             <div class="card">
+          <div class="descuento">44% Off</div>
+          <img src="image/prueba-comida.jpg" alt="Combo Trío">
+          <div class="titulo">Combo Trío</div>
+          <div class="descripcion">1 Royal, 2 Cheese, 3 papas</div>
+          <div class="precio">S/ 39.90 <span class="tachado">S/ 71.40</span></div>
+          <button class="boton agregar-pedido">Agregar al pedido</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- segundo banner -->
+ <div class="banner-container">
+  <img src="image/banner 1.jpg" alt="Banner promocional">
+</div>
+<br>
+<br>
+
+<!-- segundo contenido -->
+ <h1> CONTENIDO EXTRA</h1>
+ <div class="cards-wrapper">
+    <div class="card-container">
+      <div class="card-image">
+        <a href="html/historia.html">
+          <img src="image/extras1.jpg" alt="Pizza Vertical" />
+        </a>
+      </div>
+      <div class="card-content">
+        <h1>Sobre Nosotros</h1>
+        <p>Disfruta de esta pizza deliciosa con ingredientes frescos y masa perfectamente horneada.</p>
+        
+      </div>
+    </div>
+
+    <div class="card-container">
+      <div class="card-image">
+        <a href="html/galeria.html">
+          <img src="image/extras2.jpg" alt="Combo Vertical" />
+        </a>
+      </div>
+      <div class="card-content">
+        <h1>Galeria</h1>
+        <p>Perfecto para compartir para toda la familia.</p>
+       
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+<br>
+
+
+
+ <!-- contenido de footer -->
+
+ <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-section about">
+      <img src="image/massimo_sinfondo.png" alt="Los Gavilanes Hotel" class="logo-footer">
+      <p>MASSIMO GROSSO es un elegante restaurante que combina la alta cocina italiana con un ambiente moderno y acogedor. Cada
+      espacio ha sido diseñado pensando en brindar una experiencia gastronómica única, donde la calidad, el confort y el sabor
+      se fusionan para satisfacer a los paladares más exigentes.</p>
+    </div>
+
+    <div class="footer-section contact">
+      <h3>CONTACTO</h3>
+      <p class="phone">+51 919 500 060</p>
+      <p>📍UBICANOS</p>
+      <p>Jr. Guillermo Sisley 799, Pucallpa<br>Perú.</p>
+      <br>
+      <p>Av. Miraflores SELVA PLAZA PUCALLPA <br>Perú.</p>
+    </div>
+
+    <div class="footer-section social-map">
+      <div class="social">
+        <h3>REDES SOCIALES</h3>
+        <a href="https://www.instagram.com/massimogrossopizza?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><img src="image/instagram.png" alt="Instagram" class="social-icon"></a>
+        <a href="https://www.facebook.com/massimogrossopizza" target="_blank"><img src="image/facebook.png" alt="Facebook" class="social-icon"></a>
+        <a href="https://www.tiktok.com/@massimogrossopizza?is_from_webapp=1&sender_device=pc" target="_blank"><img src="image/tiktok-logo.jpeg" alt="TikTok" class="social-icon"></a>
+      </div>
+
+      <div class="map">
+        <h3>UBICACIÓN</h3>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63256.70948694826!2d-74.5696973174667!3d-8.379147357639927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91cd18944d0b5b8d%3A0xf16cb3f7853b3d5b!2sLos%20Gavilanes%20Hotel!5e0!3m2!1ses!2spe!4v1714173102771!5m2!1ses!2spe"
+          width="250" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright © 2025 <span>MASSIMO GROSSO</span>. All rights reserved</p>
+  </div>
+</footer>y
+
+
+<!-- Tus scripts existentes -->
+<script src="js/index.js"></script>
+<script src="js/header.js"></script>
+<script src="js/control.js"></script>
+<script src="js/usuarios.js"></script>
+<script src="js/carrito.js"></script>
+<script src="js/modal-login"></script>
+<script src="js/agregar-carrito.js"></script>
+<script  src =" https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+<script>
+  // Cuando se carga la página
+  document.addEventListener("DOMContentLoaded", function() {
+    fetch('../usuario_actual.php')
+      .then(response => response.text())
+      .then(nombre => {
+        if (nombre.trim() !== "") {
+          document.getElementById("texto-login").innerHTML = `Hola, <br> ${nombre}`;
+        }
+      })
+      .catch(error => {
+        console.error('Error al obtener el nombre de usuario:', error);
+      });
+  });
+
+  function irPerfil(){
+  if(localStorage.getItem("usuarioLogueado")){
+    window.location.href = "html/perfil.html";
+  } else {
+    window.location.href = "html/Login.html";
+  }
+}
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+/* Estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Estilo general del header */
+header {
+  width: 100%;
+  background-color: #0c0c0c;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Contenedor principal del header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+
+/* Logo y dirección */
+.logo-columna {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -100px;
+}
+
+.logo {
+  height: 48px;
+  margin-bottom: 4px;
+}
+
+.slogan {
+  font-size: 11px;
+  color: #ccc;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.direccion-barra {
+  display: flex;
+  align-items: center;
+  background-color: #419641;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.direccion-barra:hover {
+  background-color: #4db34d;
+}
+
+.direccion-barra img {
+  margin-right: 6px;
+  width: 14px;
+  height: 14px;
+  border: none; /* 🔥 No borde */
+}
+
+
+
+/* Menú principal */
+.menu-principal {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-principal a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 8px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.menu-principal a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #d92b1b;
+  transition: width 0.2s ease;
+  transform: translateX(-50%);
+}
+
+.menu-principal a:hover {
+  color: #d92b1b;
+}
+
+.menu-principal a:hover::after {
+  width: 70%;
+}
+
+/* Acciones (WhatsApp, Teléfono, Login, Carrito) */
+.acciones-principal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-right: -100px;
+}
+
+.acciones-principal a,
+.acciones-principal .carrito {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.acciones-principal img {
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+  border: none; /* 🔥 No borde */
+}
+
+.whatsapp {
+  background-color: #25D366;
+}
+
+.whatsapp:hover {
+  background-color: #1ebe57;
+}
+
+.telefono {
+  background-color: #ffffff;
+  color: #0c0c0c;
+}
+
+.telefono .numero {
+  color: #000000;
+  font-weight: bold;
+}
+
+.telefono:hover {
+  background-color: #ffffffee;
+}
+
+.telefono:hover .numero {
+  color: #000000;
+}
+
+.login {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.login:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.carrito {
+  background-color: #d92b1b;
+  font-weight: bold;
+}
+
+.carrito:hover {
+  background-color: #f13529;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .menu-principal {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .acciones-principal {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo-columna {
+    align-items: center;
+    margin-left: 0;
+  }
+}
+
+/* boton de pedido */
+.boton-pedido {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #d92b1b;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.boton-pedido i {
+  font-size: 18px;
+}
+
+.boton-pedido:hover {
+  background-color: #f13529;
+}
+
+
+
+
+/* Modal estilo off-canvas desde la derecha */
+.modal-carrito {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Oculto por defecto */
+  width: 350px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  transition: right 0.4s ease;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-carrito.activo {
+  right: 0;
+}
+
+.modal-carrito .cerrar-carrito {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  align-self: flex-end;
+  color: #333;
+}
+
+.modal-carrito h2 {
+  margin: 10px 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.items-carrito {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.total-carrito {
+  font-size: 16px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.btn-comprar {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #d92b1b;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+  background-color: #b82313;
+}
+
+
