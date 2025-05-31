@@ -1,110 +1,59 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Galería de Clientes</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<form action="procesar_compra.php" method="POST">
+  <a href="#" class="boton-pedido" onclick="obtenerUbicacion(); return false;">
+    <i class='bx bx-map'></i> ¡Usar mi ubicación actual!
+  </a>
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 40px 20px;
-    }
+  <p id="direccionVisible" style="margin-top: 10px; font-weight: bold; color: green;"></p>
 
-    h1 {
-      text-align: center;
-      color: #222;
-      margin-bottom: 30px;
-    }
+  <!-- Campo oculto con la dirección -->
+  <input type="hidden" name="direccion" id="direccionInput">
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+  <!-- Otros campos de compra -->
+  <button type="submit">Realizar compra</button>
+</form>
 
-    .gallery img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
+<style>
+  .boton-pedido {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ffcc00;
+    color: #000;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+</style>
 
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
+<script>
+  function obtenerUbicacion() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
 
-    /* Estilo del modal */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
+        const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`;
 
-    .modal img {
-      max-width: 90%;
-      max-height: 80%;
-      border-radius: 10px;
-    }
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const direccion = data.display_name;
 
-    .modal.active {
-      display: flex;
-    }
-  </style>
-</head>
-<body>
+            // Mostrar dirección al usuario
+            document.getElementById("direccionVisible").innerText = "Tu dirección: " + direccion;
 
-  <h1>Galería de Clientes en Massimo Grosso</h1>
+            // Guardar en el input oculto para enviar al backend
+            document.getElementById("direccionInput").value = direccion;
+          })
+          .catch(error => {
+            console.error('Error al obtener la dirección:', error);
+            alert("No se pudo obtener la dirección.");
+          });
 
-  <div class="gallery">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+1" alt="Cliente 1">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+2" alt="Cliente 2">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+3" alt="Cliente 3">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+4" alt="Cliente 4">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+5" alt="Cliente 5">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+6" alt="Cliente 6">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+6" alt="Cliente 7">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+6" alt="Cliente 8">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+6" alt="Cliente 9">
-    <img src="https://via.placeholder.com/400x300?text=Cliente+6" alt="Cliente 10">
-  </div>
-
-  <!-- Modal -->
-  <div class="modal" id="imageModal">
-    <img src="" alt="Imagen ampliada" id="modalImage">
-  </div>
-
-  <script>
-    const images = document.querySelectorAll('.gallery img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
-
-    images.forEach(img => {
-      img.addEventListener('click', () => {
-        modal.classList.add('active');
-        modalImg.src = img.src;
+      }, function(error) {
+        alert("No se pudo obtener tu ubicación. Asegúrate de dar permiso.");
       });
-    });
-
-    modal.addEventListener('click', () => {
-      modal.classList.remove('active');
-    });
-  </script>
-
-</body>
-</html>
+    } else {
+      alert("Tu navegador no soporta geolocalización.");
+    }
+  }
+</script>

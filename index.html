@@ -15,8 +15,8 @@
   <link rel="stylesheet" href="css/contenido.css">
   <link rel="stylesheet" href="css/tarjetas-de-contenido.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/modal_login.css">
-  <link rel="stylesheet" href="css/carrito.css">
+  
+
 </head>
 <body>
 
@@ -27,9 +27,6 @@
     <a href="index.html">
       <img src="image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
     </a>
-<a href="html/pedido.html" class="boton-pedido">
-  <i class='bx bx-map'></i> ¡Comienza tu pedido!
-</a>
 
 
 
@@ -57,12 +54,13 @@
      <span class="numero">Llamanos <br> +51 919 500 060</span>
      </a>
 
-      <a href="html/Login.html" class="login" onclick="abrirModal()">
-        <img src="image/usuario2.png" alt="Iniciar Sesión" />
-         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
-      </a>
+<a href="html/Login.html" class="login" id="login-link">
+  <img src="image/usuario2.png" alt="Iniciar Sesión" />
+  <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+</a>
 
-        
+
+ 
       <a href="#" class="carrito">
         <img src="image/carrito.png" alt="Carrito" />
          <span class="monto-carrito">Carrito</span>
@@ -71,56 +69,6 @@
   </div>
 </header>
 
-<!-- Modal del carrito -->
-<div id="modalCarrito" class="modal-carrito">
-  <div class="contenido-carrito">
-    <button class="cerrar-carrito">&times;</button>
-    <div class="items-carrito">
-      <p>No hay productos aún.</p>
-    </div>
-    <div class="total-carrito">
-      <strong>Total: </strong> S/0.00
-    </div>
-    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
-  </div>
-</div>
-<div id="modalLogin" class="modal-login">
-  <div class="modal-content">
-    <div class="modal-header">
-      <button class="modal-tab active">Iniciar sesión</button>
-      <button class="modal-tab">Registrarse</button>
-      <button class="modal-close" onclick="cerrarModal()">&times;</button>
-    </div>
-    <div class="modal-body">
-      <form>
-        <input type="email" placeholder="Correo" required>
-        <div class="password-input">
-          <input type="password" placeholder="Contraseña" required>
-          <i class="fas fa-eye-slash toggle-password" onclick="togglePassword()"></i>
-        </div>
-        <div class="forgot-password">
-          <a href="#">¿Olvidaste tu contraseña?</a>
-        </div>
-        <button type="submit">Ingresar</button>
-        <div class="divider">
-          <div class="divider-line"></div>
-          <span class="divider-text">o</span>
-          <div class="divider-line"></div>
-        </div>
-        <p style="text-align: center; margin-bottom: 15px;">Ingresa con:</p>
-        <button type="button" class="google-btn">
-          <div class="google-btn-content">
-            <img src="https://via.placeholder.com/24" alt="Usuario">
-            <div>
-              <div>Acceder con Google</div>
-            </div>
-          </div>
-          <img src="https://via.placeholder.com/18" alt="Google">
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
 
   <!-- Carrusel -->
   <div class="carousel active" id="carousel">
@@ -137,7 +85,6 @@
   </div>
 
   <!-- contenido -->
-  
   <div class="contenedor">
     <div class="seccion">
       <br>
@@ -195,10 +142,12 @@
 
         <!-- Banner 1 -->
 <div class="banner-container">
-  <img src="image/banner 1.jpg" alt="Banner promocional">
+  <a href="html/menu.html">
+    <img src="image/banner 1.jpg" alt="Banner promocional">
+  </a>
 </div>
-<br>
-<br>
+<br><br>
+
 
 
   <div class="seccion">
@@ -254,41 +203,43 @@
   </div>
 
 <!-- segundo banner -->
- <div class="banner-container">
-  <img src="image/banner 1.jpg" alt="Banner promocional">
+<div class="banner-container">
+  <a href="html/reservacion.html">
+    <img src="image/banner-reserva.png" alt="Banner promocional">
+  </a>
 </div>
-<br>
-<br>
+<br><br>
 
 <!-- segundo contenido -->
- <h1> CONTENIDO EXTRA</h1>
- <div class="cards-wrapper">
-    <div class="card-container">
-      <div class="card-image">
-        <a href="html/historia.html">
-          <img src="image/extras1.jpg" alt="Pizza Vertical" />
-        </a>
-      </div>
-      <div class="card-content">
-        <h1>Sobre Nosotros</h1>
-        <p>Disfruta de esta pizza deliciosa con ingredientes frescos y masa perfectamente horneada.</p>
-        
-      </div>
-    </div>
+<h1>CONTENIDO EXTRA</h1>
+<div class="cards-wrapper">
 
-    <div class="card-container">
-      <div class="card-image">
-        <a href="html/galeria.html">
-          <img src="image/extras2.jpg" alt="Combo Vertical" />
-        </a>
-      </div>
-      <div class="card-content">
-        <h1>Galeria</h1>
-        <p>Perfecto para compartir para toda la familia.</p>
-       
-      </div>
+  <div class="card-container" onclick="location.href='html/historia.html'">
+    <div class="card-image">
+      <a href="html/historia.html">
+        <img src="image/extras1.jpg" alt="Pizza Vertical" />
+      </a>
+    </div>
+    <div class="card-content">
+      <h1>Sobre Nosotros</h1>
+      <p>Disfruta de esta pizza deliciosa con ingredientes frescos y masa perfectamente horneada.</p>
     </div>
   </div>
+
+  <div class="card-container" onclick="location.href='html/galeria.html'">
+    <div class="card-image">
+      <a href="html/galeria.html">
+        <img src="image/extras2.jpg" alt="Combo Vertical" />
+      </a>
+    </div>
+    <div class="card-content">
+      <h1>Galería</h1>
+      <p>Perfecto para compartir para toda la familia.</p>
+    </div>
+  </div>
+
+</div>
+
 <br>
 <br>
 <br>
@@ -344,35 +295,8 @@
 <script src="js/index.js"></script>
 <script src="js/header.js"></script>
 <script src="js/control.js"></script>
-<script src="js/usuarios.js"></script>
-<script src="js/carrito.js"></script>
-<script src="js/modal-login"></script>
-<script src="js/agregar-carrito.js"></script>
-<script  src =" https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
-<script>
-  // Cuando se carga la página
-  document.addEventListener("DOMContentLoaded", function() {
-    fetch('../usuario_actual.php')
-      .then(response => response.text())
-      .then(nombre => {
-        if (nombre.trim() !== "") {
-          document.getElementById("texto-login").innerHTML = `Hola, <br> ${nombre}`;
-        }
-      })
-      .catch(error => {
-        console.error('Error al obtener el nombre de usuario:', error);
-      });
-  });
-
-  function irPerfil(){
-  if(localStorage.getItem("usuarioLogueado")){
-    window.location.href = "html/perfil.html";
-  } else {
-    window.location.href = "html/Login.html";
-  }
-}
-</script>
-
+<script src="js/usuario-actual.js"></script>
+<script src="js/perfil.js"></script>
 
 
 </body>

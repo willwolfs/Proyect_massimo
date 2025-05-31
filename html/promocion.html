@@ -2,89 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-   <link rel="icon" type="image/x-icon" href="../image/logo.png">
+  <link rel="icon" type="image/x-icon" href="../image/logo.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/hearder.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/hearder.css">
   <link rel="stylesheet" href="css/inicio.css">
-  <link rel="stylesheet" href="css/hearder.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="../css/menu.css">
+  <link rel="stylesheet" href="../css/carrito.css">
   <title>Promociones</title>
 </head>
 <body>
   <header>
-<div class="header-container">
-  <div class="logo-columna">
-    <a href="../index.html">
-      <img src="../image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
-    </a>
-<a href="pedido.html" class="boton-pedido">
-  <i class='bx bx-map'></i> ¡Comienza tu pedido!
-</a>
+    <div class="header-container">
+      <div class="logo-columna">
+        <a href="../index.html">
+          <img src="../image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
+        </a>
+      </div>
 
+      <!-- Menú de Navegación -->
+      <nav class="menu-principal">
+        <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
+        <a href="../html/menu.html"><i class="fas fa-pizza-slice"></i> Menú</a>
+        <a href="../html/promocion.html"><i class="fas fa-tags"></i> Promociones</a>
+        <a href="../html/local.html"><i class="fas fa-store"></i> Locales</a>
+        <a href="../html/reservacion.html"><i class="fas fa-envelope"></i> Reserva</a>
+      </nav>
 
+      <!-- Acciones Principales -->
+      <div class="acciones-principal">
+        <a href="https://api.whatsapp.com/send/?phone=51919500060&text&type=phone_number&app_absent=0" class="whatsapp">
+          <img src="../image/whatsapp.png" alt="WhatsApp" />
+          <span class="texto-whatsapp">Pide por <br> WhatsApp</span>
+        </a>
+        <a href="tel:+51 919 500 060" class="telefono">
+          <img src="../image/telefono.png" alt="Teléfono" />
+          <span class="numero">Llamanos <br> +51 919 500 060</span>
+        </a>
+        <a href="../html/Login.html" class="login">
+          <img src="../image/usuario2.png" alt="Iniciar Sesión" />
+          <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+        </a>
+        <a href="#" class="carrito">
+          <img src="../image/carrito.png" alt="Carrito" />
+          <span class="monto-carrito">Carrito</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
+  <!-- Modal del carrito -->
+  <div id="modalCarrito" class="modal-carrito">
+    <div class="contenido-carrito">
+      <button class="cerrar-carrito">&times;</button>
+      <div class="items-carrito">
+        <p>No hay productos aún.</p>
+      </div>
+      <div class="total-carrito">
+        <strong>Total: </strong> S/0.00
+      </div>
+      <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
+    </div>
   </div>
 
+  <!-- Contenido de promociones -->
+  <div class="menu-container">
+    <div class="menu-title">
+      <h1>Promociones Massimo</h1>
+    </div>
     
-
-<!-- Menú de Navegación -->
-<nav class="menu-principal">
-  <a href="../index.html"><i class="fas fa-home"></i> Inicio</a>
-  <a href="../html/menu.html"><i class="fas fa-pizza-slice"></i> Menú</a>
-  <a href="../html/promocion.html"><i class="fas fa-tags"></i> Promociones</a>
-  <a href="../html/local.html"><i class="fas fa-store"></i> Locales</a>
-  <a href="../html/reservacion.html"><i class="fas fa-envelope"></i> Reserva</a>
-</nav>
-
-
-    <!-- Acciones Principales -->
-     
-    <div class="acciones-principal">
-      <a href="https://api.whatsapp.com/send/?phone=51919500060&text&type=phone_number&app_absent=0" class="whatsapp">
-        <img src="../image/whatsapp.png" alt="WhatsApp" />
-       <span class="texto-whatsapp">Pide por <br> WhatsApp</span>
-      </a>
-    <a href="tel:+51 919 500 060" class="telefono">
-      <img src="../image/telefono.png" alt="Teléfono" />
-     <span class="numero">Llamanos <br> +51 919 500 060</span>
-     </a>
-
-      <a href="../html/Login.html" class="login">
-        <img src="../image/usuario2.png" alt="Iniciar Sesión" />
-         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
-      </a>
-      <a href="#" class="carrito">
-        <img src="../image/carrito.png" alt="Carrito" />
-         <span class="monto-carrito">Carrito</span>
-      </a>
+    <div class="pizza-grid">
+      <!-- Promoción 1 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Cuatro Quesos" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">Cuatro Quesos</h3>
+          <p class="pizza-ingredients">Mezcla de mozzarella, gorgonzola, parmesano y queso de cabra con salsa blanca.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 43.90</span>
+            <span class="pizza-price">S/ 36.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Promoción 2 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza BBQ" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">BBQ Especial</h3>
+          <p class="pizza-ingredients">Pollo a la barbacoa, cebolla caramelizada, bacon y mezcla de quesos con salsa BBQ.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 44.90</span>
+            <span class="pizza-price">S/ 37.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Puedes agregar más promociones aquí -->
+      <!-- Promoción 3 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Americana" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">Americana + Bebida</h3>
+          <p class="pizza-ingredients">Jamon ahumado y queso mazzarella + bebida personal.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 42.90</span>
+            <span class="pizza-price">S/ 34.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Promoción 4 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Pizza Pepperoni" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">Pepperoni Familiar</h3>
+          <p class="pizza-ingredients">Queso mozzarella y pepperoni en tamaño familiar + 2 bebidas.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 59.90</span>
+            <span class="pizza-price">S/ 49.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Promoción 5 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Wrap de Pollo" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">Combo Wrap + Bebida</h3>
+          <p class="pizza-ingredients">Wrap de pollo crujiente + bebida personal + papas fritas.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 29.90</span>
+            <span class="pizza-price">S/ 24.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Promoción 6 -->
+      <div class="pizza-card" data-category="promo">
+        <div class="pizza-img-container">
+          <span class="pizza-badge badge-offer">Oferta</span>
+          <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Ensalada" class="pizza-img">
+        </div>
+        <div class="pizza-info">
+          <h3 class="pizza-name">Ensalada + Frapuccino</h3>
+          <p class="pizza-ingredients">Ensalada César con pollo + Frapuccino de café mediano.</p>
+          <div class="pizza-footer">
+            <span class="price-old">S/ 37.80</span>
+            <span class="pizza-price">S/ 29.90</span>
+            <button class="add-to-cart">
+              <i class="fas fa-plus"></i> Añadir
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</header>
-
-<!-- Modal del carrito -->
-<div id="modalCarrito" class="modal-carrito">
-  <div class="contenido-carrito">
-    <button class="cerrar-carrito">&times;</button>
-    <div class="items-carrito">
-      <p>No hay productos aún.</p>
-    </div>
-    <div class="total-carrito">
-      <strong>Total: </strong> S/0.00
-    </div>
-    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
-  </div>
-</div>
-
-<h3>MUY PRONTO</h3>
 
   <script src="js/header.js"></script>
   <script src="js/control.js"></script>
   <script src="js/usuarios.js"></script>
   <script src="../js/carrito.js"></script>
-
+  <script src="../js/menu.js"></script>
+  <script src="../js/agregar-carrito.js"></script>
   <script>
     // Cuando se carga la página
     document.addEventListener("DOMContentLoaded", function() {

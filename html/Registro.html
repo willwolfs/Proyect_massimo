@@ -14,6 +14,7 @@
     <div class="login-box">
       <img class="avatar" src="../image/avatar massimo.png" alt="Avatar">
       <p class="subtitle">Sé parte de <br> Massimo Grosso</p>
+
       <h2>CREAR CUENTA</h2>
 
       <form id="registroForm">
@@ -27,13 +28,18 @@
         </label>
 
         <label for="email">
-          <i class="fa fa-user"></i>
-          <input type="text" id="email" placeholder="Correo electronico" required>
+          <i class="fa fa-envelope"></i>
+          <input type="email" id="email" placeholder="Correo electrónico" required>
+        </label>
+
+        <label for="birthdate">
+          <i class="fa fa-calendar"></i>
+          <input type="date" id="birthdate" placeholder="Fecha de nacimiento" required>
         </label>
 
         <label for="newPassword">
           <i class="fa fa-lock"></i>
-          <input type="password" id="newPassword" placeholder="Contraseña" required>
+          <input type="password" id="newPassword" placeholder="Contraseña (mín. 8 caracteres)" required>
         </label>
 
         <label for="confirmPassword">
@@ -48,42 +54,7 @@
     </div>
   </div>
 
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-  <script>
-    document.getElementById('registroForm').addEventListener('submit', function (event) {
-  event.preventDefault();
+  <script src="../js/validacion-registro.js"></script>
 
-  const nombre = document.getElementById('newUsername').value;
-  const correo = document.getElementById('email').value;
-  const contraseña = document.getElementById('newPassword').value;
-  const confirmar = document.getElementById('confirmPassword').value;
-
-  if (contraseña !== confirmar) {
-    alert('Las contraseñas no coinciden');
-    return;
-  }
-
-  fetch('../guardar.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: `nombre=${encodeURIComponent(nombre)}&correo=${encodeURIComponent(correo)}&contraseña=${encodeURIComponent(contraseña)}`
-  })
-  .then(response => response.text())
-  .then(data => {
-    alert(data);
-    if (data.includes("exitosamente")) {
-      // Guardar datos en localStorage
-      localStorage.setItem("usuarioActual", JSON.stringify({ nombre: nombre, correo: correo }));
-      window.location.href = 'perfil.html';
-    }
-  })
-  .catch(error => {
-    alert('Error al registrar: ' + error);
-  });
-});
-
-  </script>
 </body>
 </html>

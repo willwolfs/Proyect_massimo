@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../css/hearder.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="../css/Reserva.css">
+  <link rel="stylesheet" href="../css/carrito.css">
   <title>Reserva</title>
 </head>
 <body>
@@ -19,9 +20,6 @@
       <a href="../index.html">
         <img src="../image/massimo_grosso_logo.png" alt="Massimo Grosso" class="logo" />
       </a>
-  <a href="pedido.html" class="boton-pedido">
-    <i class='bx bx-map'></i> ¡Comienza tu pedido!
-  </a>
 </div>
 
     
@@ -66,6 +64,15 @@
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" placeholder="nombre" required />
 
+         <label for="evento">Eventos:</label>
+        <select name="evento" required>
+          <option value="" disabled selected>Seleccione un evento</option>
+          <option value="Cumpleaños">Cumpleaños</option>
+          <option value="Aniversarios">Aniversarios</option>
+          <option value="Reuniones">Reuniones</option>
+       
+        </select>
+
         <label for="correo">Correo:</label>
         <input type="email" name="correo" placeholder="correo electrónico" required />
 
@@ -74,15 +81,9 @@
 
         
 
-        <label for="grupo">Tamaño del grupo:</label>
-        <select name="grupo" required>
-          <option value="" disabled selected>Seleccione el tamaño del grupo</option>
-          <option value="1 persona">1 persona</option>
-          <option value="2 personas">2 personas</option>
-          <option value="3 personas">3 personas</option>
-          <option value="4 personas">4 personas</option>
-          <option value="5 personas">5 personas</option>
-        </select>
+       <label for="grupo">Tamaño del grupo:</label>
+<input type="text" name="grupo" id="grupo" placeholder="Escriba el tamaño de personas" required>
+
 
         <label for="fecha">Fecha de reserva:</label>
         <input type="date" name="fecha" required />
