@@ -50,31 +50,34 @@
      <span class="numero">Llamanos <br> +51 919 500 060</span>
      </a>
 
-      <a href="../html/Login.html" class="login">
-        <img src="../image/usuario2.png" alt="Iniciar Sesión" />
-         <span id="texto-login">Hola, <br> Iniciar Sesión</span>
-      </a>
-      <a href="#" class="carrito">
-        <img src="../image/carrito.png" alt="Carrito" />
-         <span class="monto-carrito">Carrito</span>
-      </a>
-    </div>
-  </div>
+      <a href="html/Login.html" class="login" id="login-link">
+  <img src="../image/usuario2.png" alt="Iniciar Sesión" />
+  <span id="texto-login">Hola, <br> Iniciar Sesión</span>
+</a>
 </header>
 
-<!-- Modal del carrito -->
-<div id="modalCarrito" class="modal-carrito">
-  <div class="contenido-carrito">
-    <button class="cerrar-carrito">&times;</button>
-    <div class="items-carrito">
-      <p>No hay productos aún.</p>
+
+    <div class="cart-container">
+    <div class="cart-header">
+        <h2>Tu Pedido</h2>
+        <button class="close-cart">&times;</button>
     </div>
-    <div class="total-carrito">
-      <strong>Total: </strong> S/0.00
+    <div class="cart-items">
+        <!-- Los ítems del carrito se agregarán aquí dinámicamente -->
     </div>
-    <a href="checkout.html" class="btn-comprar">Finalizar compra</a>
-  </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>Total:</span>
+            <span class="total-price">S/ 0.00</span>
+        </div>
+<button class="checkout-btn" disabled>Realizar Pedido</button>
+    </div>
 </div>
+<div class="cart-toggle">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span>
+</div>
+
 
 <!-- contenido del menu -->
 <div class="menu-container">
@@ -719,12 +722,19 @@
         </div>
     </div>
 
+
   <script src="js/header.js"></script>
   <script src="js/control.js"></script>
   <script src="js/usuarios.js"></script>
   <script src="../js/carrito.js"></script>
   <script src="../js/menu.js"></script>
-  <script src="../js/agregar-carrito.js"></script>
+  <script src="../js/perfil.js"></script>
+  
+ 
+
+
+
+
   <script>
     // Cuando se carga la página
     document.addEventListener("DOMContentLoaded", function() {

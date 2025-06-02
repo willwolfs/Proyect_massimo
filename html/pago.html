@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Método de Pago</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .payment-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .payment-options button {
+      margin: 10px;
+      padding: 15px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background-color 0.3s ease;
+      min-width: 200px;
+    }
+
+    .payment-options button:hover {
+      background-color: #0056b3;
+    }
+
+    .payment-info {
+      display: none;
+      margin-top: 20px;
+      text-align: left;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    form button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    form button:hover {
+      background-color: #218838;
+    }
+
+    .qr-container {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+
+    .qr-image {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .location-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .location-buttons button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s;
+    }
+
+    .location-buttons button:hover {
+      background-color: #e0e0e0;
+    }
+
+    .success-message {
+      display: none;
+      background-color: #d4edda;
+      color: #155724;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .error-message {
+      color: #721c24;
+      background-color: #f8d7da;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      display: none;
+    }
+
+    .loading {
+      display: none;
+      margin: 10px 0;
+    }
+
+    .loading:after {
+      content: " .";
+      animation: dots 1s steps(5, end) infinite;
+    }
+
+    @keyframes dots {
+      0%, 20% {
+        color: rgba(0,0,0,0);
+        text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+      }
+      40% {
+        color: black;
+        text-shadow: .25em 0 0 rgba(0,0,0,0), .5em 0 0 rgba(0,0,0,0);
+      }
+      60% {
+        text-shadow: .25em 0 0 black, .5em 0 0 rgba(0,0,0,0);
+      }
+      80%, 100% {
+        text-shadow: .25em 0 0 black, .5em 0 0 black;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Elige tu método de pago</h2>
+    
+    <div class="payment-options">
+      <button onclick="showPayment('efectivo')">Pagar en Efectivo</button>
+      <button onclick="showPayment('yape')">Pagar con Yape</button>
+    </div>
+
+    <!-- Sección para pago en efectivo -->
+    <div id="efectivo" class="payment-info">
+      <h3>Pago en Efectivo</h3>
+      <p>Entrega el dinero al repartidor cuando recibas tu pedido.</p>
+
+      <form id="form-efectivo">
+        <div class="error-message" id="efectivo-error"></div>
+        
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" required 
+               pattern="[0-9]{9}" title="Ingresa un número de 9 dígitos" 
+               placeholder="987654321">
+        
+        <label for="direccion">Dirección de Entrega:</label>
+        <textarea id="direccion" name="direccion" required 
+                  placeholder="Tu dirección aparecerá aquí..."></textarea>
+        
+        <div class="location-buttons">
+          <button type="button" onclick="obtenerUbicacion()">
+            📍 Usar mi ubicación
+          </button>
+          <button type="button" onclick="actualizarUbicacion()">
+            🔄 Actualizar ubicación
+          </button>
+        </div>
+        
+        <div class="loading" id="loading-ubicacion">Obteniendo ubicación</div>
+        
+        <label for="instrucciones">Instrucciones adicionales (opcional):</label>
+        <textarea id="instrucciones" name="instrucciones" 
+                  placeholder="Ej: Llamar antes de llegar, referencia, etc."></textarea>
+        
+        <button type="button" onclick="confirmarPedidoEfectivo()">Confirmar Pedido</button>
+      </form>
+      
+      <div class="success-message" id="efectivo-success">
+        ¡Pedido confirmado! Nos comunicaremos contigo pronto.
+      </div>
+    </div>
+
+    <!-- Sección para pago con Yape -->
+    <div id="yape" class="payment-info">
+      <h3>Pago con Yape</h3>
+      <p>Escanea el siguiente código QR o envía el monto a este número:</p>
+      
+      <div class="qr-container">
+        <img src="https://via.placeholder.com/200x200?text=Código+QR+Yape" 
+             alt="Código QR Yape" class="qr-image">
+        <p><strong>Teléfono:</strong> 987 654 321</p>
+      </div>
+      
+      <p>Después de realizar el pago, completa tus datos:</p>
+      
+      <form id="form-yape">
+        <div class="error-message" id="yape-error"></div>
+        
+        <label for="yape-telefono">Tu teléfono (desde donde yapeaste):</label>
+        <input type="tel" id="yape-telefono" name="yape-telefono" required 
+               pattern="[0-9]{9}" title="Ingresa un número de 9 dígitos">
+        
+        <label for="yape-direccion">Dirección de Entrega:</label>
+        <textarea id="yape-direccion" name="yape-direccion" required 
+                  placeholder="Ingresa tu dirección completa"></textarea>
+        
+        <div class="location-buttons">
+          <button type="button" onclick="obtenerUbicacionYape()">
+            📍 Usar mi ubicación
+          </button>
+        </div>
+        
+        <div class="loading" id="loading-ubicacion-yape">Obteniendo ubicación</div>
+        
+        <label for="yape-comprobante">Número de operación (opcional):</label>
+        <input type="text" id="yape-comprobante" name="yape-comprobante" 
+               placeholder="Ej: 123456789">
+        
+        <button type="button" onclick="confirmarPedidoYape()">Confirmar Pedido</button>
+      </form>
+      
+      <div class="success-message" id="yape-success">
+        ¡Pedido confirmado! Verificaremos tu pago y nos comunicaremos contigo.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mostrar el método de pago seleccionado
+    function showPayment(method) {
+      document.getElementById('efectivo').style.display = 'none';
+      document.getElementById('yape').style.display = 'none';
+      
+      // Ocultar mensajes de éxito al cambiar de método
+      document.getElementById('efectivo-success').style.display = 'none';
+      document.getElementById('yape-success').style.display = 'none';
+      
+      // Mostrar el método seleccionado
+      document.getElementById(method).style.display = 'block';
+      
+      // Si es efectivo, intentar obtener ubicación automáticamente
+      if (method === 'efectivo') {
+        obtenerUbicacion();
+      }
+    }
+    
+    // Validar número de teléfono
+    function validarTelefono(telefono) {
+      return /^[0-9]{9}$/.test(telefono);
+    }
+    
+    // Validar dirección
+    function validarDireccion(direccion) {
+      return direccion.trim().length > 10; // Mínimo 10 caracteres
+    }
+    
+    // Mostrar mensaje de error
+    function mostrarError(elementId, mensaje) {
+      const errorElement = document.getElementById(elementId);
+      errorElement.textContent = mensaje;
+      errorElement.style.display = 'block';
+      setTimeout(() => {
+        errorElement.style.display = 'none';
+      }, 5000);
+    }
+    
+    // Confirmar pedido en efectivo
+    function confirmarPedidoEfectivo() {
+      const telefono = document.getElementById('telefono').value;
+      const direccion = document.getElementById('direccion').value;
+      
+      // Validaciones
+      if (!validarTelefono(telefono)) {
+        mostrarError('efectivo-error', 'Por favor ingresa un número de teléfono válido de 9 dígitos.');
+        return;
+      }
+      
+      if (!validarDireccion(direccion)) {
+        mostrarError('efectivo-error', 'Por favor ingresa una dirección válida (mínimo 10 caracteres).');
+        return;
+      }
+      
+      // Simular envío de datos al servidor
+      setTimeout(() => {
+        document.getElementById('form-efectivo').style.display = 'none';
+        document.getElementById('efectivo-success').style.display = 'block';
+        
+        // Aquí normalmente enviarías los datos al servidor
+        console.log('Pedido confirmado:', {
+          metodo: 'efectivo',
+          telefono,
+          direccion,
+          instrucciones: document.getElementById('instrucciones').value
+        });
+      }, 1000);
+    }
+    
+    // Confirmar pedido con Yape
+    function confirmarPedidoYape() {
+      const telefono = document.getElementById('yape-telefono').value;
+      const direccion = document.getElementById('yape-direccion').value;
+      
+      // Validaciones
+      if (!validarTelefono(telefono)) {
+        mostrarError('yape-error', 'Por favor ingresa un número de teléfono válido de 9 dígitos.');
+        return;
+      }
+      
+      if (!validarDireccion(direccion)) {
+        mostrarError('yape-error', 'Por favor ingresa una dirección válida (mínimo 10 caracteres).');
+        return;
+      }
+      
+      // Simular envío de datos al servidor
+      setTimeout(() => {
+        document.getElementById('form-yape').style.display = 'none';
+        document.getElementById('yape-success').style.display = 'block';
+        
+        // Aquí normalmente enviarías los datos al servidor
+        console.log('Pedido confirmado:', {
+          metodo: 'yape',
+          telefono,
+          direccion,
+          comprobante: document.getElementById('yape-comprobante').value
+        });
+      }, 1000);
+    }
+    
+    // Obtener ubicación para efectivo
+    function obtenerUbicacion() {
+      const loadingElement = document.getElementById('loading-ubicacion');
+      loadingElement.style.display = 'block';
+      
+      if (!navigator.geolocation) {
+        loadingElement.style.display = 'none';
+        mostrarError('efectivo-error', "La geolocalización no es compatible con tu navegador.");
+        return;
+      }
+      
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          
+          // Usar OpenStreetMap Nominatim para obtener la dirección
+          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+            .then(response => {
+              if (!response.ok) throw new Error('Error en la respuesta');
+              return response.json();
+            })
+            .then(data => {
+              loadingElement.style.display = 'none';
+              if (data.display_name) {
+                document.getElementById('direccion').value = data.display_name;
+              } else {
+                document.getElementById('direccion').value = `Latitud: ${lat}, Longitud: ${lon}`;
+              }
+            })
+            .catch(err => {
+              loadingElement.style.display = 'none';
+              console.error(err);
+              document.getElementById('direccion').value = `Latitud: ${lat}, Longitud: ${lon}`;
+            });
+        },
+        (error) => {
+          loadingElement.style.display = 'none';
+          console.error(error);
+          let mensaje = "No se pudo obtener la ubicación. ";
+          switch(error.code) {
+            case error.PERMISSION_DENIED:
+              mensaje += "Has denegado el permiso de ubicación.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              mensaje += "La información de ubicación no está disponible.";
+              break;
+            case error.TIMEOUT:
+              mensaje += "La solicitud de ubicación ha expirado.";
+              break;
+            default:
+              mensaje += "Error desconocido.";
+          }
+          mostrarError('efectivo-error', mensaje);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 10000,
+          maximumAge: 0
+        }
+      );
+    }
+    
+    // Obtener ubicación para Yape
+    function obtenerUbicacionYape() {
+      const loadingElement = document.getElementById('loading-ubicacion-yape');
+      loadingElement.style.display = 'block';
+      
+      if (!navigator.geolocation) {
+        loadingElement.style.display = 'none';
+        mostrarError('yape-error', "La geolocalización no es compatible con tu navegador.");
+        return;
+      }
+      
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          
+          fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`)
+            .then(response => {
+              if (!response.ok) throw new Error('Error en la respuesta');
+              return response.json();
+            })
+            .then(data => {
+              loadingElement.style.display = 'none';
+              if (data.display_name) {
+                document.getElementById('yape-direccion').value = data.display_name;
+              } else {
+                document.getElementById('yape-direccion').value = `Latitud: ${lat}, Longitud: ${lon}`;
+              }
+            })
+            .catch(err => {
+              loadingElement.style.display = 'none';
+              console.error(err);
+              document.getElementById('yape-direccion').value = `Latitud: ${lat}, Longitud: ${lon}`;
+            });
+        },
+        (error) => {
+          loadingElement.style.display = 'none';
+          console.error(error);
+          mostrarError('yape-error', "No se pudo obtener la ubicación. Inténtalo manualmente.");
+        }
+      );
+    }
+    
+    // Actualizar ubicación (igual que obtener pero con mensaje)
+    function actualizarUbicacion() {
+      alert("Actualizando tu ubicación...");
+      obtenerUbicacion();
+    }
+    
+    // Inicialización
+    document.addEventListener('DOMContentLoaded', function() {
+      // Podrías agregar lógica de inicialización aquí si es necesario
+    });
+  </script>
+</body>
+</html>
